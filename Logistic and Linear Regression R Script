@@ -1,0 +1,909 @@
+Summary Statistics
+
+
+> summary(Age)
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
+ 0.06575 24.00000 42.00000 40.21844 57.00000 91.00000       22
+
+> tabulate(Sex)
+[1] 431
+
+> tabulate(ScalpelSign)
+[1] 50
+
+> summary(Symptomdurationyears)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   0.330   1.000   2.804   3.000  33.000     287
+
+> tabulate(`Syrinx/Syringomyelia`)
+[1] 192
+
+> tabulate(Dorsallocation)
+[1] 607
+
+> tabulate(`Spine Location Code`)
+[1]  57  57 435 148  63  28  30  20   6
+
+> tabulate(`Number of Levels Involved`)
+ [1]  84 227 140 100  88  42  33  27  14   9   6   7   2   5   2   3   1   2   1
+[20]   1   1   1
+
+> summary(`Number of Levels Involved`)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   2.000   3.000   3.985   5.000  22.000      57
+
+> tabulate(`UE Symptoms`)
+[1] 100
+
+>tabulate(`LE Symptoms`)
+[1] 578
+
+> tabulate(`Trunk Symptoms`)
+[1] 183
+
+> tabulate(`Motor Weakness`)
+[1] 466
+
+> tabulate(`Dorsal Column Symptoms`)
+[1] 311
+
+> tabulate(`Back Pain`)
+[1] 275
+
+> tabulate(`Cauda Equina Symptoms`)
+[1] 178
+
+>tabulate(`Surgical Treatment`)
+[1] 821
+
+> tabulate(`Symptom Improvement?`)
+[1] 735
+
+> tabulate(Complications)
+[1] 20
+
+> tabulate(Death)
+[1] 1
+
+> summary(Followup)
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
+  0.03846   5.00000  12.00000  26.20241  33.00000 174.00000       234
+
+
+
+
+Symptom Improvement
+
+> summary(fS)
+
+Call:
+glm(formula = Age ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-44.269  -14.919    1.081   16.081   51.081  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              45.019      2.464  18.273   <2e-16 ***
+`Symptom Improvement?`   -5.100      2.582  -1.976   0.0486 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 430.9558)
+
+    Null deviance: 343861  on 795  degrees of freedom
+Residual deviance: 342179  on 794  degrees of freedom
+  (57 observations deleted due to missingness)
+AIC: 7091.5
+
+Number of Fisher Scoring iterations: 2
+
+
+> summary(fS)
+
+Call:
+glm(formula = Sex ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5290  -0.5290   0.4710   0.4710   0.6389  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.36111    0.05870   6.152 1.22e-09 ***
+`Symptom Improvement?`  0.16789    0.06155   2.728  0.00652 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2481133)
+
+    Null deviance: 198.85  on 795  degrees of freedom
+Residual deviance: 197.00  on 794  degrees of freedom
+  (57 observations deleted due to missingness)
+AIC: 1153.4
+
+Number of Fisher Scoring iterations: 2
+
+
+> summary(fS)
+
+Call:
+glm(formula = Symptomdurationyears ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-4.6483  -2.3947  -1.6447   0.3553  30.3553  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              4.6483     0.7391   6.289 6.54e-10 ***
+`Symptom Improvement?`  -2.0035     0.7699  -2.602  0.00951 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 23.48765)
+
+    Null deviance: 12983  on 547  degrees of freedom
+Residual deviance: 12824  on 546  degrees of freedom
+  (305 observations deleted due to missingness)
+AIC: 3288.9
+
+Number of Fisher Scoring iterations: 2
+
+
+
+Call:
+glm(formula = ScalpelSign ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.1000  -0.1000  -0.1000  -0.1000   0.9516  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)
+(Intercept)             0.04839    0.03701   1.308    0.192
+`Symptom Improvement?`  0.05161    0.03953   1.306    0.192
+
+(Dispersion parameter for gaussian family taken to be 0.08490968)
+
+    Null deviance: 42.600  on 501  degrees of freedom
+Residual deviance: 42.455  on 500  degrees of freedom
+  (351 observations deleted due to missingness)
+AIC: 190.59
+
+Number of Fisher Scoring iterations: 2
+
+> fS <- glm(`Syrinx/Syringomyelia` ~`Symptom Improvement?`)
+> summary(fS)
+
+Call:
+glm(formula = `Syrinx/Syringomyelia` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.4074  -0.2232  -0.2232  -0.2232   0.7768  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.40741    0.04727   8.619  < 2e-16 ***
+`Symptom Improvement?` -0.18422    0.04997  -3.687 0.000243 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1809942)
+
+    Null deviance: 141.64  on 770  degrees of freedom
+Residual deviance: 139.18  on 769  degrees of freedom
+  (82 observations deleted due to missingness)
+AIC: 874.14
+
+Number of Fisher Scoring iterations: 2
+
+
+> summary(fS)
+
+Call:
+glm(formula = Dorsallocation ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8375   0.1625   0.1625   0.1625   0.2787  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.72131    0.04827   14.94   <2e-16 ***
+`Symptom Improvement?`  0.11615    0.05050    2.30   0.0217 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1421216)
+
+    Null deviance: 100.95  on 706  degrees of freedom
+Residual deviance: 100.20  on 705  degrees of freedom
+  (146 observations deleted due to missingness)
+AIC: 630.97
+
+Number of Fisher Scoring iterations: 2
+
+
+Call:
+glm(formula = `Number of Levels Involved` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-4.6970  -1.7937  -0.7937   1.2063  18.2063  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              5.6970     0.3615  15.759  < 2e-16 ***
+`Symptom Improvement?`  -1.9033     0.3782  -5.032 6.05e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 8.624976)
+
+    Null deviance: 6790.7  on 763  degrees of freedom
+Residual deviance: 6572.2  on 762  degrees of freedom
+  (89 observations deleted due to missingness)
+AIC: 3818.3
+
+Number of Fisher Scoring iterations: 2
+
+
+Call:
+glm(formula = `UE Symptoms` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2131  -0.1281  -0.1281  -0.1281   0.8719  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.21311    0.04376   4.870 1.38e-06 ***
+`Symptom Improvement?` -0.08503    0.04578  -1.857   0.0637 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1168293)
+
+    Null deviance: 83.001  on 708  degrees of freedom
+Residual deviance: 82.598  on 707  degrees of freedom
+  (144 observations deleted due to missingness)
+AIC: 493.8
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+Call:
+glm(formula = `LE Symptoms` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8197   0.1803   0.2294   0.2294   0.2294  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.81967    0.05353  15.311   <2e-16 ***
+`Symptom Improvement?` -0.04906    0.05593  -0.877    0.381    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1748215)
+
+    Null deviance: 127.05  on 727  degrees of freedom
+Residual deviance: 126.92  on 726  degrees of freedom
+  (125 observations deleted due to missingness)
+AIC: 800.35
+
+Number of Fisher Scoring iterations: 2
+
+
+
+> fS <- glm(`Trunk Symptoms` ~`Symptom Improvement?`)
+> summary(fS)
+
+Call:
+glm(formula = `Trunk Symptoms` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3148  -0.2548  -0.2548   0.6852   0.7452  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.31481    0.05971   5.273 1.81e-07 ***
+`Symptom Improvement?` -0.06001    0.06224  -0.964    0.335    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1925055)
+
+    Null deviance: 130.31  on 677  degrees of freedom
+Residual deviance: 130.13  on 676  degrees of freedom
+  (175 observations deleted due to missingness)
+AIC: 810.98
+
+Number of Fisher Scoring iterations: 2
+
+
+
+Call:
+glm(formula = `Motor Weakness` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.6515  -0.6053   0.3947   0.3947   0.3947  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.65152    0.06011  10.838   <2e-16 ***
+`Symptom Improvement?` -0.04617    0.06299  -0.733    0.464    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.23849)
+
+    Null deviance: 176.13  on 739  degrees of freedom
+Residual deviance: 176.01  on 738  degrees of freedom
+  (113 observations deleted due to missingness)
+AIC: 1043.3
+
+Number of Fisher Scoring iterations: 2
+
+
+> fS <- glm(`Dorsal Column Symptoms` ~`Symptom Improvement?`)
+> summary(fS)
+
+Call:
+glm(formula = `Dorsal Column Symptoms` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.4915  -0.3952  -0.3952   0.6048   0.6048  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.49153    0.06385   7.698 4.58e-14 ***
+`Symptom Improvement?` -0.09635    0.06664  -1.446    0.149    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2405699)
+
+    Null deviance: 173.71  on 721  degrees of freedom
+Residual deviance: 173.21  on 720  degrees of freedom
+  (131 observations deleted due to missingness)
+AIC: 1024.3
+
+Number of Fisher Scoring iterations: 2
+
+
+Call:
+glm(formula = `Back Pain` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3912  -0.3912  -0.3912   0.6088   0.7273  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.27273    0.06546   4.166 3.49e-05 ***
+`Symptom Improvement?`  0.11851    0.06822   1.737   0.0828 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2356937)
+
+    Null deviance: 163.81  on 693  degrees of freedom
+Residual deviance: 163.10  on 692  degrees of freedom
+  (159 observations deleted due to missingness)
+AIC: 970.5
+
+Number of Fisher Scoring iterations: 2
+
+
+summary(fS)
+
+Call:
+glm(formula = `Cauda Equina Symptoms` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-0.300  -0.226  -0.226  -0.226   0.774  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.30000    0.05452   5.503 5.22e-08 ***
+`Symptom Improvement?` -0.07405    0.05696  -1.300    0.194    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1783433)
+
+    Null deviance: 127.46  on 714  degrees of freedom
+Residual deviance: 127.16  on 713  degrees of freedom
+  (138 observations deleted due to missingness)
+AIC: 800.39
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+
+
+
+> summary(fS)
+
+Call:
+glm(formula = `Surgical Treatment` ~ `Symptom Improvement?`)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.98501   0.01499   0.01499   0.01499   0.13415  
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             0.86585    0.01746  49.577  < 2e-16 ***
+`Symptom Improvement?`  0.11916    0.01841   6.471 1.68e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.02501172)
+
+    Null deviance: 21.407  on 815  degrees of freedom
+Residual deviance: 20.360  on 814  degrees of freedom
+  (37 observations deleted due to missingness)
+AIC: -690.04
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+
+
+
+
+Complications
+
+
+fS <- glm(Age ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = Age ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-42.963  -15.789    1.211   17.211   51.211  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    39.7894     0.7606  52.312   <2e-16 ***
+Complications   3.9231     4.7592   0.824     0.41    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 441.4296)
+
+    Null deviance: 345056  on 782  degrees of freedom
+Residual deviance: 344756  on 781  degrees of freedom
+  (70 observations deleted due to missingness)
+AIC: 6994.5
+
+Number of Fisher Scoring iterations: 2
+
+
+Call:
+glm(formula = Sex ~ Complications)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-0.521  -0.521   0.479   0.479   0.600  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.52100    0.01811  28.766   <2e-16 ***
+Complications -0.12100    0.11325  -1.068    0.286    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2499539)
+
+    Null deviance: 195.25  on 781  degrees of freedom
+Residual deviance: 194.96  on 780  degrees of freedom
+  (71 observations deleted due to missingness)
+AIC: 1139
+
+Number of Fisher Scoring iterations: 2
+
+
+Call:
+glm(formula = Symptomdurationyears ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.2418  -2.1206  -1.3706   0.6294  27.6294  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     2.3706     0.1771   13.39   <2e-16 ***
+Complications   0.8794     1.2209    0.72    0.472    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 16.05129)
+
+    Null deviance: 8371.1  on 522  degrees of freedom
+Residual deviance: 8362.7  on 521  degrees of freedom
+  (330 observations deleted due to missingness)
+AIC: 2939.9
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(ScalpelSign ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = ScalpelSign ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.1017  -0.1017  -0.1017  -0.1017   0.8983  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.10173    0.01390   7.319 1.08e-12 ***
+Complications -0.10173    0.08402  -1.211    0.227    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.08925711)
+
+    Null deviance: 42.349  on 474  degrees of freedom
+Residual deviance: 42.219  on 473  degrees of freedom
+  (378 observations deleted due to missingness)
+AIC: 204.28
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`Syrinx/Syringomyelia` ~ Complications)
+> summary(fs)
+Error in summary(fs) : object 'fs' not found
+> summary(fS)
+
+Call:
+glm(formula = `Syrinx/Syringomyelia` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.2632  -0.2190  -0.2190  -0.2190   0.7810  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.21901    0.01540  14.225   <2e-16 ***
+Complications  0.04415    0.09641   0.458    0.647    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1720887)
+
+    Null deviance: 127.90  on 744  degrees of freedom
+Residual deviance: 127.86  on 743  degrees of freedom
+  (108 observations deleted due to missingness)
+AIC: 807.21
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+fS <- glm(Dorsallocation ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = Dorsallocation ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8300   0.1700   0.1700   0.1700   0.3889  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.82997    0.01440  57.626   <2e-16 ***
+Complications -0.21886    0.09058  -2.416   0.0159 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1439639)
+
+    Null deviance: 103.05  on 711  degrees of freedom
+Residual deviance: 102.21  on 710  degrees of freedom
+  (141 observations deleted due to missingness)
+AIC: 644.57
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`Number of Levels Involved` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Number of Levels Involved` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.9181  -1.9181  -0.9181   1.0819  18.0819  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     3.9181     0.1067  36.717   <2e-16 ***
+Complications   0.7485     0.6948   1.077    0.282    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 8.483581)
+
+    Null deviance: 6465.9  on 762  degrees of freedom
+Residual deviance: 6456.0  on 761  degrees of freedom
+  (90 observations deleted due to missingness)
+AIC: 3800.7
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`UE Symptoms` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `UE Symptoms` ~ Complications)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-0.128  -0.128  -0.128  -0.128   0.875  
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.127976   0.012903   9.919   <2e-16 ***
+Complications -0.002976   0.084608  -0.035    0.972    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1118718)
+
+    Null deviance: 76.744  on 687  degrees of freedom
+Residual deviance: 76.744  on 686  degrees of freedom
+  (165 observations deleted due to missingness)
+AIC: 449.46
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+Call:
+glm(formula = `LE Symptoms` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8235   0.1765   0.2344   0.2344   0.2344  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.76556    0.01610  47.543   <2e-16 ***
+Complications  0.05797    0.10392   0.558    0.577    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1791655)
+
+    Null deviance: 126.55  on 707  degrees of freedom
+Residual deviance: 126.49  on 706  degrees of freedom
+  (145 observations deleted due to missingness)
+AIC: 795.85
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`Trunk Symptoms` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Trunk Symptoms` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3529  -0.2591  -0.2591   0.7409   0.7409  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.25915    0.01717  15.090   <2e-16 ***
+Complications  0.09379    0.10806   0.868    0.386    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1934836)
+
+    Null deviance: 129.97  on 672  degrees of freedom
+Residual deviance: 129.83  on 671  degrees of freedom
+  (180 observations deleted due to missingness)
+AIC: 808.44
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+fS <- glm(`Motor Weakness` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Motor Weakness` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.7500  -0.5943   0.4057   0.4057   0.4057  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.59429    0.01853  32.076   <2e-16 ***
+Complications  0.15571    0.11117   1.401    0.162    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2402885)
+
+    Null deviance: 173.00  on 719  degrees of freedom
+Residual deviance: 172.53  on 718  degrees of freedom
+  (133 observations deleted due to missingness)
+AIC: 1020.6
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`Dorsal Column Symptoms`~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Dorsal Column Symptoms` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.6316  -0.3952  -0.3952   0.6048   0.6048  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.39522    0.01835  21.533   <2e-16 ***
+Complications  0.23636    0.11377   2.078   0.0381 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2395121)
+
+    Null deviance: 175.40  on 729  degrees of freedom
+Residual deviance: 174.36  on 728  degrees of freedom
+  (123 observations deleted due to missingness)
+AIC: 1032.4
+
+Number of Fisher Scoring iterations: 2
+
+
+
+fS <- glm(`Back Pain` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Back Pain` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3884  -0.3884  -0.3884   0.6116   0.8235  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.38839    0.01874  20.727   <2e-16 ***
+Complications -0.21192    0.11929  -1.776   0.0761 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.2359535)
+
+    Null deviance: 162.84  on 688  degrees of freedom
+Residual deviance: 162.10  on 687  degrees of freedom
+  (164 observations deleted due to missingness)
+AIC: 964.3
+
+Number of Fisher Scoring iterations: 2
+
+
+fS <- glm(`Cauda Equina Symptoms` ~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Cauda Equina Symptoms` ~ Complications)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.3500  -0.2333  -0.2333  -0.2333   0.7667  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.23329    0.01603  14.550   <2e-16 ***
+Complications  0.11671    0.09640   1.211    0.226    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.1807089)
+
+    Null deviance: 130.56  on 722  degrees of freedom
+Residual deviance: 130.29  on 721  degrees of freedom
+  (130 observations deleted due to missingness)
+AIC: 818.82
+
+Number of Fisher Scoring iterations: 2
+
+
+
+
+Call:
+glm(formula = `Surgical Treatment` ~ Complications)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.97957   0.02043   0.02043   0.02043   0.15000  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.97957    0.00539 181.727  < 2e-16 ***
+Complications -0.12957    0.03415  -3.793  0.00016 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.02275038)
+
+    Null deviance: 18.550  on 802  degrees of freedom
+Residual deviance: 18.223  on 801  degrees of freedom
+  (50 observations deleted due to missingness)
+AIC: -755.08
+
+Number of Fisher Scoring iterations: 2
+
+
+
+> fS <- glm(`Symptom Improvement?`~ Complications)
+> summary(fS)
+
+Call:
+glm(formula = `Symptom Improvement?` ~ Complications)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.91938   0.08062   0.08062   0.08062   0.35000  
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.91938    0.01008  91.164  < 2e-16 ***
+Complications -0.26938    0.06334  -4.253 2.37e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.07821004)
+
+    Null deviance: 62.966  on 788  degrees of freedom
+Residual deviance: 61.551  on 787  degrees of freedom
+  (64 observations deleted due to missingness)
+AIC: 232.43
+
+Number of Fisher Scoring iterations: 2
